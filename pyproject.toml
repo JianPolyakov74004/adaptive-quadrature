@@ -1,0 +1,14 @@
+[project]
+name = "adaptive-quadrature"
+version = "0.1.0"
+description = "Integrates a scalar function on an interval using adaptive Simpson's rule to a specified tolerance."
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
