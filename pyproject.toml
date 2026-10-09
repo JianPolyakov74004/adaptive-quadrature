@@ -1,6 +1,6 @@
 [project]
 name = "adaptive-quadrature"
-version = "0.1.0"
+version = "0.1.1"
 description = "Integrates a scalar function on an interval using adaptive Simpson's rule to a specified tolerance."
 requires-python = ">=3.10"
 dependencies = []
