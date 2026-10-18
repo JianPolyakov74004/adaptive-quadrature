@@ -25,3 +25,10 @@ The tolerance `tol` is interpreted per subinterval in the classical Numerical-Re
 ## The awkward edge
 
 Non-integrable singularities and discontinuities inside `[a, b]` will drive the recursion to `max_depth`. When that happens the library raises `IntegrationError` rather than silently returning a wrong number; the exception carries `.value` (the best partial estimate) and `.interval` if you want to recover something. Integrable singularities (e.g. `1/sqrt(x)` at the left endpoint) usually converge, but slowly — raise `max_depth` or loosen `tol` if you hit the guard. Infinite intervals are not supported; transform variables first.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
